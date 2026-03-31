@@ -10,4 +10,6 @@
 /target
 .DS_Store
 /.dir-locals.el
-/state
+.clj-kondo/*/
+.shadow-cljs/*
+resources
