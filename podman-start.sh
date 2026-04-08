@@ -1,3 +1,3 @@
 #!/bin/bash
 
-podman start datomic-browser
+podman start datomic-browser-dev

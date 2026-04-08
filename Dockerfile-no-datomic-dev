@@ -1,0 +1,14 @@
+FROM clojure:temurin-17-tools-deps-1.12.0.1501
+WORKDIR /app
+COPY deps.edn deps.edn
+ARG VERSION=0
+ENV VERSION=$VERSION
+RUN clojure -A:dev -M -e ::ok       # preload – rebuilds if deps change
+
+## COPY shadow-cljs.edn shadow-cljs.edn
+COPY src src
+COPY src-dev src-dev
+COPY resources resources
+
+EXPOSE 8080
+CMD clojure -X:dev dev/-main :datomic-uri '"datomic:dev://localhost:4334/*"'
