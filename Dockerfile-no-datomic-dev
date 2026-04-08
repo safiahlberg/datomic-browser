@@ -11,4 +11,4 @@ COPY src-dev src-dev
 COPY resources resources
 
 EXPOSE 8080
-CMD clojure -X:dev dev/-main :datomic-uri '"datomic:dev://localhost:4334/*"'
+CMD ["clojure", "-X:dev", "dev/-main", ":datomic-uri", "\"datomic:dev://localhost:4334/*\""]
